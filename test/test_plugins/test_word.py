@@ -9,12 +9,7 @@ from word import on_message
 page = requests.get("https://raw.githubusercontent.com/dwyl/english-words/master/words.txt")
 
 def test_word():
-	"""
-	0! = 1
-	1!= 1
-	5! = 120
-	9! = 362880
-	"""
-	ans = on_message({"text": u"!word"}, None)
-	return ans in page.text
+	for _ in range(20):
+		ans = on_message({"text": u"!word"}, None)
+		assert ans in page.text
 
